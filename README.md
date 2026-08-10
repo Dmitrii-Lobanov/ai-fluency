@@ -5,12 +5,14 @@ senior software-engineering fluency with AI.
 
 ## Current status
 
-Planning and initial assessment. The roadmap is a draft pending approval; no
-application harness or learning mission has been implemented yet.
+Planning and initial assessment. The roadmap, detailed Week 1 plan, and Mission
+001 React fixture are ready. The learning mission has not started yet.
 
 ## Start here
 
 - [12-week roadmap](docs/12-week-roadmap.md)
+- [Week 1 plan](docs/week-01-plan.md)
+- [Mission 001 React fixture](fixtures/mission-001/README.md)
 - [Initial capability assessment](docs/initial-capability-assessment.md)
 
 ## Working principles
@@ -23,4 +25,3 @@ application harness or learning mission has been implemented yet.
   on a second meaningful case.
 - Knowledge and skills remain portable and model-independent.
 - Destructive or externally visible actions require explicit approval.
-
