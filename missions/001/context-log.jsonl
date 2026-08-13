@@ -1,0 +1,5 @@
+{"stage":"baseline","actor":"learner","context":"Selected application source","output":"Two short hypotheses","verification":"Incomplete","disposition":"Insufficient evidence"}
+{"stage":"implementation-request","actor":"learner","context":"App field handlers and pagination concern","output":"Requested separate search, category, and page handlers","verification":"Compared against request lifecycle","disposition":"Partially correct hypothesis"}
+{"stage":"diagnosis","actor":"AI-assisted","context":"App, useCatalogSearch, API delays, existing tests","output":"Identified pagination invariant and out-of-order response completion","verification":"Source inspection and regression design","disposition":"Accepted"}
+{"stage":"implementation","actor":"AI-assisted","context":"Verified diagnosis","output":"Added typed handlers and effect lifecycle guard","verification":"Automated tests and production build","disposition":"Accepted"}
+{"stage":"evaluation","actor":"AI-assisted","context":"Artifacts and execution results","output":"Observed — single case; incomplete baseline","verification":"Week 1 rubric","disposition":"Closed with limitations"}

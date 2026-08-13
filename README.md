@@ -5,14 +5,17 @@ senior software-engineering fluency with AI.
 
 ## Current status
 
-Planning and initial assessment. The roadmap, detailed Week 1 plan, and Mission
-001 React fixture are ready. The learning mission has not started yet.
+Week 1 and Mission 001 are closed with an `Observed — single case` result. The
+formal rubric did not pass because the baseline and context evidence were
+incomplete. The investigation workflow remains a draft pending a second case.
 
 ## Start here
 
 - [12-week roadmap](docs/12-week-roadmap.md)
 - [Week 1 plan](docs/week-01-plan.md)
 - [Mission 001 React fixture](fixtures/mission-001/README.md)
+- [Mission 001 evaluation](missions/001/evaluation.yaml)
+- [Mission 001 retrospective](missions/001/retrospective.md)
 - [Initial capability assessment](docs/initial-capability-assessment.md)
 
 ## Working principles

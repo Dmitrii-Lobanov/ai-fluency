@@ -1,6 +1,6 @@
 # Week 1 Plan: Mission 001
 
-**Status:** Plan and fixture ready; dependency installation and mission start pending  
+**Status:** Closed — completed with limited evidence; formal rubric not passed
 **Theme:** Baseline and codebase investigation  
 **Time budget:** 10 hours  
 **Skill candidate:** `codebase-investigation` (`Draft` only)
@@ -289,5 +289,5 @@ Before fixture implementation, confirm or revise:
 
 ## Next action
 
-After these defaults are confirmed, build and independently verify the controlled
-fixture and evaluator materials without beginning the learner's baseline.
+Run a meaningful second debugging case with a complete baseline and learner-owned
+diagnosis before considering the draft investigation skill for approval.
