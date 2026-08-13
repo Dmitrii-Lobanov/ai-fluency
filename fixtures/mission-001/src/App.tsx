@@ -12,18 +12,16 @@ export function App() {
   const { data, loading, error } = useCatalogSearch(query, category, page);
   const pageCount = Math.max(1, Math.ceil((data?.total ?? 0) / 4));
 
-  const handleFieldChange = (field: 'query' | 'category' | 'page', value: string | Category | number) => {
-    const next = { query, category, page };
+  const handleSearchChange = (nextQuery: string) => {
+    update({ query: nextQuery, page: 1 });
+  };
 
-    if (field === 'query' || field === 'category') {
-      next[field] = value as never;
-      next.page = 1;
-      update(next);
-      return;
-    }
+  const handleCategoryChange = (nextCategory: Category) => {
+    update({ category: nextCategory, page: 1 });
+  };
 
-    next.page = Number(value);
-    update(next);
+  const handlePageChange = (nextPage: number) => {
+    update({ page: nextPage });
   };
 
   return (
@@ -35,8 +33,8 @@ export function App() {
       </header>
 
       <section className="controls" aria-label="Catalog filters">
-        <SearchBox value={query} onChange={(nextQuery) => handleFieldChange('query', nextQuery)} />
-        <CategoryFilter value={category} onChange={(nextCategory) => handleFieldChange('category', nextCategory)} />
+        <SearchBox value={query} onChange={handleSearchChange} />
+        <CategoryFilter value={category} onChange={handleCategoryChange} />
       </section>
 
       <section aria-live="polite" aria-busy={loading}>
@@ -45,7 +43,7 @@ export function App() {
           <RequestStatus loading={loading} error={error} label={data?.requestLabel} />
         </div>
         {!error && data && <ResultsList items={data.items} />}
-        {data && <Pagination page={page} pageCount={pageCount} onChange={(nextPage) => handleFieldChange('page', nextPage)} />}
+        {data && <Pagination page={page} pageCount={pageCount} onChange={handlePageChange} />}
       </section>
     </main>
   );

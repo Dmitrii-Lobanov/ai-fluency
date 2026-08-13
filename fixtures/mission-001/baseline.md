@@ -1,0 +1,1 @@
+in the fixtures/mission-001/src/App.tsx the query updates on search input, category select, or page select. It seems like the bug is in the form fileds handlers: when a data is changed, only this part of data is sent to the API. Also, when the filter data has been changed the page hasn't been set to initial (1)

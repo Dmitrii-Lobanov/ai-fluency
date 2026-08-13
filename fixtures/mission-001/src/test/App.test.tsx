@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import { App } from '../App';
@@ -55,5 +55,23 @@ describe('Atlas Catalog', () => {
     expect(window.location.search).toContain('q=react');
     expect(window.location.search).toContain('category=testing');
     expect(window.location.search).not.toContain('page=2');
+  });
+
+  it('does not let a slower, superseded search overwrite the latest results', async () => {
+    render(<App />);
+    await screen.findByText('React Query Panel');
+
+    const searchInput = screen.getByLabelText('Search components');
+    fireEvent.change(searchInput, { target: { value: 'react' } });
+    fireEvent.change(searchInput, { target: { value: 'redux' } });
+
+    expect(await screen.findByText('Redux Timeline')).toBeInTheDocument();
+    expect(await screen.findByText('redux:all:p1')).toBeInTheDocument();
+
+    await new Promise((resolve) => setTimeout(resolve, 750));
+
+    expect(screen.getByText('Redux Timeline')).toBeInTheDocument();
+    expect(screen.queryByText('React Query Panel')).not.toBeInTheDocument();
+    expect(screen.getByText('redux:all:p1')).toBeInTheDocument();
   });
 });

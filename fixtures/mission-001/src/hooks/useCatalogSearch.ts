@@ -16,14 +16,26 @@ export function useCatalogSearch(query: string, category: Category, page: number
   });
 
   useEffect(() => {
+    let isCurrentRequest = true;
+
     setState((current) => ({ ...current, loading: true, error: null }));
 
     searchCatalog({ query, category, page, pageSize: 4 })
-      .then((data) => setState({ data, loading: false, error: null }))
+      .then((data) => {
+        if (isCurrentRequest) {
+          setState({ data, loading: false, error: null });
+        }
+      })
       .catch((error: unknown) => {
+        if (!isCurrentRequest) return;
+
         const message = error instanceof Error ? error.message : 'Unknown catalog error';
         setState((current) => ({ ...current, loading: false, error: message }));
       });
+
+    return () => {
+      isCurrentRequest = false;
+    };
   }, [query, category, page]);
 
   return state;
