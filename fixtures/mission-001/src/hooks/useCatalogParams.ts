@@ -29,6 +29,13 @@ export function useCatalogParams() {
   const update = useCallback((next: Partial<CatalogParams>) => {
     setParams((current) => {
       const merged = { ...current, ...next };
+
+      const queryChanged = next.query !== undefined && next.query !== current.query;
+      const categoryChanged = next.category !== undefined && next.category !== current.category;
+      if (queryChanged || categoryChanged) {
+        merged.page = 1;
+      }
+
       const url = new URL(window.location.href);
       merged.query ? url.searchParams.set('q', merged.query) : url.searchParams.delete('q');
       merged.category === 'all'
@@ -37,10 +44,6 @@ export function useCatalogParams() {
       merged.page === 1
         ? url.searchParams.delete('page')
         : url.searchParams.set('page', String(merged.page));
-
-      // if (next.query || next.category) {
-      //   url.searchParams.delete('page');
-      // }
 
       window.history.pushState({}, '', url);
       return merged;

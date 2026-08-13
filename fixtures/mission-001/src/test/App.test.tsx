@@ -22,4 +22,38 @@ describe('Atlas Catalog', () => {
     expect(screen.queryByText('React Query Panel')).not.toBeInTheDocument();
     expect(window.location.search).toContain('category=testing');
   });
+
+  it('resets to the first page when filters change after pagination', async () => {
+    const user = userEvent.setup();
+    render(<App />);
+
+    await screen.findByText('React Query Panel');
+    await user.click(screen.getByRole('button', { name: 'Next' }));
+
+    expect(await screen.findByText('Page 2 of 4')).toBeInTheDocument();
+    expect(window.location.search).toContain('page=2');
+
+    await user.selectOptions(screen.getByLabelText('Category'), 'testing');
+
+    expect(await screen.findByText('Request Recorder')).toBeInTheDocument();
+    expect(window.location.search).toContain('category=testing');
+    expect(window.location.search).not.toContain('page=2');
+  });
+
+  it('keeps the typed search query when category changes', async () => {
+    const user = userEvent.setup();
+    render(<App />);
+
+    const searchInput = screen.getByLabelText('Search components');
+    await user.type(searchInput, 'react');
+
+    expect(window.location.search).toContain('q=react');
+
+    await user.selectOptions(screen.getByLabelText('Category'), 'testing');
+
+    expect(await screen.findByText('Showing response for')).toBeInTheDocument();
+    expect(window.location.search).toContain('q=react');
+    expect(window.location.search).toContain('category=testing');
+    expect(window.location.search).not.toContain('page=2');
+  });
 });
