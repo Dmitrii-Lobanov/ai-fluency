@@ -13,6 +13,7 @@ incomplete. The investigation workflow remains a draft pending a second case.
 
 - [12-week roadmap](docs/12-week-roadmap.md)
 - [Week 1 plan](docs/week-01-plan.md)
+- [Week 2 plan](docs/week-02-plan.md)
 - [Mission 001 React fixture](fixtures/mission-001/README.md)
 - [Mission 001 evaluation](missions/001/evaluation.yaml)
 - [Mission 001 retrospective](missions/001/retrospective.md)

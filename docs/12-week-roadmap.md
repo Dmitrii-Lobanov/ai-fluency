@@ -50,12 +50,14 @@ high-confidence claim. See [the detailed Week 1 plan](week-01-plan.md).
 ## Week 2: Context and instruction engineering
 
 **Learn:** Educative Module 2 selections; deeper work on portable skills.  
-**Apply:** Run comparable codebase tasks with minimal, excessive, and deliberately
-selected context.  
-**Artifacts:** Context specification, comparative traces, evaluation, and
-instruction playbook.  
-**Evidence target:** Identify the best-performing context strategy and test the
-Week 1 skill on a different case.
+**Apply:** Run isolated, comparable diagnosis cases with minimal, excessive, and
+deliberately selected context, then apply the winning strategy to a fourth
+transfer case.
+**Artifacts:** Learner-owned baseline, context specification, comparative traces,
+metrics, transfer diagnosis, evaluation, and interview briefing.
+**Evidence target:** Select a context strategy using measured quality and effort,
+and test the Week 1 investigation workflow on a different case. See
+[the detailed Week 2 plan](week-02-plan.md).
 
 ## Week 3: Planning ambiguous frontend changes
 
